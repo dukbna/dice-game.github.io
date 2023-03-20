@@ -1,19 +1,37 @@
-// Тоглогчийн ээлжийг хадгалах хувьсагч, нэгдүгээр тоглогчийг 1 гэж тэмдэглэе
-var activePlayer = 0;
+var activePlayer;
+var scores;
+var roundScore;
+var diceDom = document.querySelector(".dice")
+initGame();
+function initGame() {
+    // Тоглогчийн ээлжийг хадгалах хувьсагч, нэгдүгээр тоглогчийг 1 гэж тэмдэглэе
+activePlayer = 0;
 // Тоглогчдын цуглуулсан оноог хадгалах хувь сагч
-var scores = [0, 0];
+scores = [0, 0];
 
 // Тоглогчийн ээлжиндээ цуглуулж байгаа оноог хадгалах хувьсагч
-var roundScore = 0;
+roundScore = 0;
 
 // программ эхлэхэд бэлтгэе
 document.getElementById("score-0").textContent = "0";
 document.getElementById("score-1").textContent = "0";
 document.getElementById("current-0").textContent = "0";
 document.getElementById("current-1").textContent = "0";
- 
-var diceDom = document.querySelector(".dice")
+
+document.getElementById("name-0").textContent = "player 1"
+document.getElementById("name-1").textContent = "player 2"
+
+document.querySelector(".player-0-panel").classList.remove("winner");
+document.querySelector(".player-1-panel").classList.remove("winner");
+
+document.querySelector(".player-0-panel").classList.remove("active");
+document.querySelector(".player-1-panel").classList.remove("active");
+
+document.querySelector(".player-0-panel").classList.add("active");
+
+
 diceDom.style.display = "none";
+}
 // Шоог шидэх эвент листэнэр
 document.querySelector(".btn-roll").addEventListener("click",function() {
     // 1-6 доторх санамсаргүй нэг тоо гаргаж авна.
@@ -69,6 +87,6 @@ document.querySelector(".btn-roll").addEventListener("click",function() {
       }
 
     //   Шинэ тоглоом эхлүүлэх эвент листэнэр
-    document.querySelector('.btn-new').addEventListener('click',function(){
-        
-    })
+    document.querySelector('.btn-new').addEventListener('click',initGame)
+    
+  
