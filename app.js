@@ -70,7 +70,7 @@ document.querySelector(".btn-roll").addEventListener("click",function() {
         // Дэлгэц дээр оноог нь өөрчилнө
         document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
         // Уг тоглогч хожсон эсэхийг оноо нь 100-с ихийг шалгах
-        if (scores[activePlayer] >= 20) {
+        if (scores[activePlayer] >= 100) {
             isNewGame = false;
             document.getElementById("name-" + activePlayer).textContent = "WINNER!!!"
             document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
